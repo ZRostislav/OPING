@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      id="favicon"
+      href=".\assets\img\light-icon.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href=".\assets\style\style.css" />
+    <title>OPING</title>
+  </head>
+  <body>
+    <div class="theme-switch">
+      <input type="checkbox" id="theme-toggle" />
+      <label for="theme-toggle" class="theme-label"></label>
+    </div>
+    <h1>Мой сайт</h1>
+    <div class="create">
+      <h2>Создать</h2>
+      <select class="select__create" placeholder="Имя">
+        <!-- <option value="option1">Опция 1</option>
+        <option value="option2">Опция 2</option>
+        <option value="option3">Опция 3</option>
+        <option value="option4">Опция 4</option> -->
+      </select>
+      <input
+        class="input__create"
+        type="text"
+        id="input__name"
+        placeholder="Имя"
+      />
+      <input
+        class="input__create"
+        type="text"
+        id="input__surname"
+        placeholder="Фамилия"
+      />
+      <input
+        class="input__post__create"
+        type="text"
+        id="input__post"
+        placeholder="Должность"
+      />
+      <input
+        class="input__create"
+        type="text"
+        id="input__experience"
+        placeholder="Стаж"
+      />
+      <input
+        class="input__create"
+        type="text"
+        id="input__years"
+        placeholder="Лет"
+      />
+      <input
+        class="input__create"
+        type="text"
+        id="input__city"
+        placeholder="Город"
+      />
+      <button id="createButton">Создать</button>
+    </div>
+    <div id="post__working" class="hidden">
+      <h2>text</h2>
+      <button id="closePost">Закрыть</button>
+    </div>
+    <button id="showPopup"></button>
+    <div id="popup" class="hidden">
+      <p>Ваш текст справочника здесь.</p>
+      <button id="closePopup">Закрыть</button>
+    </div>
+    <script src=".\assets\scripts\scripts.js"></script>
+  </body>
+</html>
