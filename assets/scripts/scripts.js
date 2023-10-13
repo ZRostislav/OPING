@@ -16,6 +16,44 @@ const yearsElement = document.querySelector(".years-class");
 const cityElement = document.querySelector(".city-class");
 const idElement = document.querySelector(".id-class");
 
+const classCreateInstances = [];
+
+class ClassCreateNew {
+  constructor(name, surname, post, experience, years, city, id) {
+    this.NewinputName = name;
+    this.NewinputSurname = surname;
+    this.NewinputPost = post;
+    this.NewinputExperience = experience;
+    this.NewinputYears = years;
+    this.NewinputCity = city;
+    this.randomId = id;
+  }
+
+  name() {
+    console.log(this.NewinputName);
+  }
+
+  surname() {
+    console.log(this.NewinputSurname);
+  }
+
+  experience() {
+    console.log(this.NewinputExperience);
+  }
+
+  years() {
+    console.log(this.NewinputYears);
+  }
+
+  city() {
+    console.log(this.NewinputCity);
+  }
+
+  id() {
+    console.log(this.generateRandomId);
+  }
+}
+
 createButton.addEventListener("click", () => {
   // Получаем значения из полей ввода
   const name = NewinputName.value;
@@ -52,7 +90,9 @@ createButton.addEventListener("click", () => {
     randomId
   );
 
+  classCreateInstances.push(ClassCreate);
   console.log(ClassCreate);
+  console.log(classCreateInstances);
 
   // Очищаем поля ввода
   NewinputName.value = "";
@@ -63,86 +103,34 @@ createButton.addEventListener("click", () => {
   NewinputCity.value = "";
 });
 
-// // Получите ссылки на существующие элементы <p>
-// const nameElement = document.querySelector(".name-class");
-// const surnameElement = document.querySelector(".surname-class");
-// const postElement = document.querySelector(".post-class");
-// const experienceElement = document.querySelector(".experience-class");
-// const yearsElement = document.querySelector(".years-class");
-// const cityElement = document.querySelector(".city-class");
-// const idElement = document.querySelector(".id-class");
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
+let currentInstanceIndex = 0; // Индекс текущего экземпляра в массиве
 
-// createButton.addEventListener("click", () => {
-//   // Получаем значения из полей ввода
-//   const name = NewinputName.value;
-//   const surname = NewinputSurname.value;
-//   const post = NewinputPost.value;
-//   const experience = NewinputExperience.value;
-//   const years = NewinputYears.value;
-//   const city = NewinputCity.value;
-
-//   // Проверяем, что все поля заполнены
-//   if (!name || !surname || !post || !experience || !years || !city) {
-//     // Если какое-либо поле не заполнено, не создаем экземпляр
-//     alert("Заполните все поля перед созданием.");
-//     return;
-//   }
-
-//   // Обновляем содержимое существующих элементов <p> с новыми значениями
-//   nameElement.textContent = `Имя: ${name}`;
-//   surnameElement.textContent = `Фамилия: ${surname}`;
-//   postElement.textContent = `Должность: ${post}`;
-//   experienceElement.textContent = `Опыт: ${experience}`;
-//   yearsElement.textContent = `Лет: ${years}`;
-//   cityElement.textContent = `Город: ${city}`;
-
-//   // Генерируем новый случайный ID
-//   const randomId = generateRandomId(3);
-//   idElement.textContent = `ID: ${randomId}`;
-
-//   // Очищаем поля ввода
-//   NewinputName.value = "";
-//   NewinputSurname.value = "";
-//   NewinputPost.value = "";
-//   NewinputExperience.value = "";
-//   NewinputYears.value = "";
-//   NewinputCity.value = "";
-// });
-
-class ClassCreateNew {
-  constructor(name, surname, post, experience, years, city, id) {
-    this.NewinputName = name;
-    this.NewinputSurname = surname;
-    this.NewinputPost = post;
-    this.NewinputExperience = experience;
-    this.NewinputYears = years;
-    this.NewinputCity = city;
-    this.randomId = id;
+prevButton.addEventListener("click", () => {
+  if (currentInstanceIndex > 0) {
+    currentInstanceIndex--;
+    updateDisplay();
   }
+});
 
-  name() {
-    console.log(this.NewinputName);
+nextButton.addEventListener("click", () => {
+  if (currentInstanceIndex < classCreateInstances.length - 1) {
+    currentInstanceIndex++;
+    updateDisplay();
   }
+});
 
-  surname() {
-    console.log(this.NewinputSurname);
-  }
+function updateDisplay() {
+  const currentInstance = classCreateInstances[currentInstanceIndex];
 
-  experience() {
-    console.log(this.NewinputExperience);
-  }
-
-  years() {
-    console.log(this.NewinputYears);
-  }
-
-  city() {
-    console.log(this.NewinputCity);
-  }
-
-  id() {
-    console.log(this.generateRandomId);
-  }
+  nameElement.textContent = `Имя: ${currentInstance.NewinputName}`;
+  surnameElement.textContent = `Фамилия: ${currentInstance.NewinputSurname}`;
+  postElement.textContent = `Должность: ${currentInstance.NewinputPost}`;
+  experienceElement.textContent = `Опыт: ${currentInstance.NewinputExperience}`;
+  yearsElement.textContent = `Лет: ${currentInstance.NewinputYears}`;
+  cityElement.textContent = `Город: ${currentInstance.NewinputCity}`;
+  idElement.textContent = `ID: ${currentInstance.randomId}`;
 }
 
 function generateRandomId(length) {
