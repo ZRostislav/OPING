@@ -1,45 +1,3 @@
-const themeToggle = document.getElementById("theme-toggle");
-const favicon = document.getElementById("favicon");
-
-themeToggle.addEventListener("change", () => {
-  if (themeToggle.checked) {
-    document.body.classList.add("dark-mode");
-    favicon.href = "./assets/img/dark-icon.png"; // Замените на путь к иконке для темной темы
-  } else {
-    document.body.classList.remove("dark-mode");
-    favicon.href = "./assets/img/light-icon.png"; // Замените на путь к иконке для светлой темы
-  }
-});
-
-///
-
-const showPopupButton = document.getElementById("showPopup");
-const closePopupButton = document.getElementById("closePopup");
-const popup = document.getElementById("popup");
-
-showPopupButton.addEventListener("click", () => {
-  if (!popup.classList.contains("hidden")) {
-    // Если popup уже открыт, выходим из функции, ничего не делая
-    return;
-  }
-
-  popup.classList.remove("hidden");
-  popup.classList.add("fadeTo");
-  setTimeout(() => {
-    popup.classList.remove("fadeTo");
-  }, 500);
-});
-
-closePopupButton.addEventListener("click", () => {
-  popup.classList.add("fadeOut"); // Добавляем класс анимации
-  setTimeout(() => {
-    popup.classList.add("hidden"); // После завершения анимации скрываем popup
-    popup.classList.remove("fadeOut"); // Удаляем класс анимации
-  }, 500); // Здесь 500 миллисекунд (0.5 секунды) соответствует длительности анимации
-});
-
-///
-
 const NewinputName = document.getElementById("input__name");
 const NewinputSurname = document.getElementById("input__surname");
 const NewinputPost = document.getElementById("input__post");
@@ -49,20 +7,54 @@ const NewinputCity = document.getElementById("input__city");
 
 const createButton = document.getElementById("createButton");
 const output = document.getElementById("output");
-const randomId = generateRandomId(3);
+
+const nameElement = document.querySelector(".name-class");
+const surnameElement = document.querySelector(".surname-class");
+const postElement = document.querySelector(".post-class");
+const experienceElement = document.querySelector(".experience-class");
+const yearsElement = document.querySelector(".years-class");
+const cityElement = document.querySelector(".city-class");
+const idElement = document.querySelector(".id-class");
 
 createButton.addEventListener("click", () => {
+  // Получаем значения из полей ввода
+  const name = NewinputName.value;
+  const surname = NewinputSurname.value;
+  const post = NewinputPost.value;
+  const experience = NewinputExperience.value;
+  const years = NewinputYears.value;
+  const city = NewinputCity.value;
+
+  // Проверяем, что все поля заполнены
+  if (!name || !surname || !post || !experience || !years || !city) {
+    // Если какое-либо поле не заполнено, не создаем экземпляр
+    alert("Заполните все поля перед созданием.");
+    return;
+  }
+
+  nameElement.textContent = `Имя: ${name}`;
+  surnameElement.textContent = `Фамилия: ${surname}`;
+  postElement.textContent = `Должность: ${post}`;
+  experienceElement.textContent = `Опыт: ${experience}`;
+  yearsElement.textContent = `Лет: ${years}`;
+  cityElement.textContent = `Город: ${city}`;
+
+  const randomId = generateRandomId(3);
+  idElement.textContent = `ID: ${randomId}`;
+
   const ClassCreate = new ClassCreateNew(
-    NewinputName.value,
-    NewinputSurname.value,
-    NewinputPost.value,
-    NewinputExperience.value,
-    NewinputYears.value,
-    NewinputCity.value,
+    name,
+    surname,
+    post,
+    experience,
+    years,
+    city,
     randomId
   );
+
   console.log(ClassCreate);
 
+  // Очищаем поля ввода
   NewinputName.value = "";
   NewinputSurname.value = "";
   NewinputPost.value = "";
@@ -70,6 +62,52 @@ createButton.addEventListener("click", () => {
   NewinputYears.value = "";
   NewinputCity.value = "";
 });
+
+// // Получите ссылки на существующие элементы <p>
+// const nameElement = document.querySelector(".name-class");
+// const surnameElement = document.querySelector(".surname-class");
+// const postElement = document.querySelector(".post-class");
+// const experienceElement = document.querySelector(".experience-class");
+// const yearsElement = document.querySelector(".years-class");
+// const cityElement = document.querySelector(".city-class");
+// const idElement = document.querySelector(".id-class");
+
+// createButton.addEventListener("click", () => {
+//   // Получаем значения из полей ввода
+//   const name = NewinputName.value;
+//   const surname = NewinputSurname.value;
+//   const post = NewinputPost.value;
+//   const experience = NewinputExperience.value;
+//   const years = NewinputYears.value;
+//   const city = NewinputCity.value;
+
+//   // Проверяем, что все поля заполнены
+//   if (!name || !surname || !post || !experience || !years || !city) {
+//     // Если какое-либо поле не заполнено, не создаем экземпляр
+//     alert("Заполните все поля перед созданием.");
+//     return;
+//   }
+
+//   // Обновляем содержимое существующих элементов <p> с новыми значениями
+//   nameElement.textContent = `Имя: ${name}`;
+//   surnameElement.textContent = `Фамилия: ${surname}`;
+//   postElement.textContent = `Должность: ${post}`;
+//   experienceElement.textContent = `Опыт: ${experience}`;
+//   yearsElement.textContent = `Лет: ${years}`;
+//   cityElement.textContent = `Город: ${city}`;
+
+//   // Генерируем новый случайный ID
+//   const randomId = generateRandomId(3);
+//   idElement.textContent = `ID: ${randomId}`;
+
+//   // Очищаем поля ввода
+//   NewinputName.value = "";
+//   NewinputSurname.value = "";
+//   NewinputPost.value = "";
+//   NewinputExperience.value = "";
+//   NewinputYears.value = "";
+//   NewinputCity.value = "";
+// });
 
 class ClassCreateNew {
   constructor(name, surname, post, experience, years, city, id) {
