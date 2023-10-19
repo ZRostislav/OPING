@@ -1,6 +1,6 @@
-const showPopupButton = document.getElementById("showPopup");
-const closePopupButton = document.getElementById("closePopup");
-const popup = document.getElementById("popup");
+export const showPopupButton = document.getElementById("showPopup");
+export const closePopupButton = document.getElementById("closePopup");
+export const popup = document.getElementById("popup");
 
 showPopupButton.addEventListener("click", () => {
   if (!popup.classList.contains("hidden")) {

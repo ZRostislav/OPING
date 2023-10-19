@@ -22,23 +22,22 @@
       <h2>Созданые</h2>
       <p class="name-class element__text">Имя:</p>
       <p class="surname-class element__text">Фамилия:</p>
-      <p class="post-class element__text">Должность:</p>
+      <p id="showDocuments" class="post-class element__text">Должность:</p>
       <p class="experience-class element__text">Опыт:</p>
-      <p class="years-class element__text">Опыт:</p>
+      <p class="years-class element__text">Лет:</p>
       <p class="city-class element__text">Город:</p>
       <p class="id-class element__text">ID:</p>
-      <button>Удалить</button>
+      <button id="deleteButton">Удалить</button>
       <button id="prevButton"><</button>
       <button id="nextButton">></button>
     </div>
     <div class="create">
       <h2>Создать</h2>
-      <select class="select__create" placeholder="Имя">
-        <!-- <option value="option1">Опция 1</option>
-        <option value="option2">Опция 2</option>
-        <option value="option3">Опция 3</option>
-        <option value="option4">Опция 4</option> -->
+
+      <select id="postSelect" class="select__create">
+        <option value="option1"></option>
       </select>
+
       <input
         class="input__create"
         type="text"
@@ -78,16 +77,56 @@
       <button id="createButton">Создать</button>
     </div>
     <div id="post__working" class="hidden">
-      <h2>text</h2>
-      <button id="closePost">Закрыть</button>
+      <h2>Должность</h2>
+      <input
+        class="input__create__post"
+        type="text"
+        id="post__input__1"
+        placeholder="Должность"
+      />
+      <input
+        class="input__create__post"
+        type="text"
+        id="post__input__2"
+        placeholder="Знания"
+      />
+      <input
+        class="input__create__post"
+        type="text"
+        id="post__input__3"
+        placeholder="Зарплата"
+      />
+      <input
+        class="input__create__post"
+        type="text"
+        id="post__input__4"
+        placeholder="Оценка"
+      />
+      <button class="close" id="closePost">Закрыть</button>
+    </div>
+    <div id="post__exprience" class="hidden">
+      <h2>Должность: Подробно</h2>
+      <p class="post2-class element__text">Должность:</p>
+      <p class="knowledge-class element__text">Знания:</p>
+      <p class="salary-class element__text">Зарплата:</p>
+      <p class="grade-class element__text">Оценка:</p>
+      <h3>Категория</h3>
+      <p class="trens element__text">Полная Ставка:</p>
+      <p class="full_rate element__text">Учился:</p>
+      <button class="close2" id="closeExprience">Закрыть</button>
     </div>
     <button id="showPopup"></button>
     <div id="popup" class="hidden">
-      <p>Ваш текст справочника здесь.</p>
+      <p>
+        Этот сайт сделан для развития <br />моего уровня и понимания что такое
+        ООП :)
+      </p>
       <button id="closePopup">Закрыть</button>
     </div>
-    <script src=".\assets\scripts\scripts.js"></script>
-    <script src=".\assets\scripts\themes.js"></script>
-    <script src=".\assets\scripts\popup.js"></script>
+    <script type="module" src=".\assets\scripts\scripts.js"></script>
+    <script type="module" src=".\assets\scripts\themes.js"></script>
+    <script type="module" src=".\assets\scripts\popup.js"></script>
+    <script type="module" src=".\assets\scripts\input.js"></script>
+    <script type="module" src=".\assets\scripts\trans.js"></script>
   </body>
 </html>

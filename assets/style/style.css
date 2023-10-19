@@ -20,6 +20,8 @@ body.dark-mode {
   position: absolute;
   top: 10px;
   right: 10px;
+
+  cursor: pointer;
 }
 
 .theme-label {
@@ -30,6 +32,8 @@ body.dark-mode {
   border-radius: 25px;
   position: relative;
   transition: 0.3s ease;
+
+  cursor: pointer;
 }
 
 .theme-label:hover {
@@ -204,8 +208,13 @@ body.dark-mode .input__post__create {
   margin: 0px 0px 20px;
   margin-top: 20px;
   outline: none;
+
+  cursor: pointer;
 }
 
+body.dark-mode .select__create option {
+  background-color: #333;
+}
 body.dark-mode .select__create {
   color: white;
 }
@@ -276,6 +285,8 @@ button {
   /* margin: 0px 0px 20px; */
   margin-top: 10px;
   outline: none;
+
+  cursor: pointer;
 }
 
 button:hover {
@@ -314,4 +325,135 @@ body.dark-mode button:hover {
   padding: 5px;
   margin: 0px 0px 20px;
   margin-top: 20px;
+}
+
+.input__create__post {
+  border: 0px;
+  width: 100%;
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  transition: 0.3s ease;
+  background: none;
+  color: black;
+  padding: 5px;
+  margin: 0px 0px 20px;
+  margin-top: 20px;
+  position: relative;
+  top: 33px;
+}
+
+body.dark-mode .input__create__post {
+  color: white;
+}
+
+.input__create__post:focus {
+  color: rgb(68, 0, 255);
+}
+
+body.dark-mode .input__create__post:focus {
+  color: rgb(255, 135, 135);
+}
+
+.close {
+  border: 0px;
+  width: 50%;
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 15px;
+  transition: 0.3s ease;
+  background: none;
+  color: black;
+  padding: 5px;
+  /* margin: 0px 0px 20px; */
+  margin-top: 43px;
+  outline: none;
+}
+
+.close2 {
+  border: 0px;
+  width: 50%;
+  border-radius: 100px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  font-size: 15px;
+  transition: 0.3s ease;
+  background: none;
+  color: black;
+  padding: 5px;
+  /* margin: 0px 0px 20px; */
+  margin-top: 22px;
+  outline: none;
+}
+
+#post__exprience {
+  padding: 50px;
+  /* border: 3px solid #000000; */
+  border-radius: 100px;
+  width: 25%;
+  height: 62%;
+  top: 15%;
+  right: 37%;
+  position: fixed;
+  transition: 0.3s ease;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+}
+
+.post-class {
+  position: relative; /* Для использования абсолютного позиционирования */
+}
+
+.post-class::after {
+  content: "›";
+  position: absolute;
+  right: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  /* text-align: center; */
+  top: 43%;
+  transform: translateY(-50%);
+}
+
+.post-class:hover {
+  background: rgb(167, 135, 255);
+  cursor: pointer;
+}
+
+body.dark-mode .post-class:hover {
+  background: rgb(255, 135, 135);
+  cursor: pointer;
+}
+
+.fadeOutDocument {
+  animation-name: FOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+.fadeToDocument {
+  animation-name: FTo;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes FOut {
+  from {
+    opacity: 1;
+    right: 37%;
+  }
+  to {
+    opacity: 0;
+    right: 65%;
+    display: none;
+  }
+}
+
+@keyframes FTo {
+  from {
+    opacity: 0;
+    right: 65%;
+  }
+  to {
+    opacity: 1;
+    right: 37%;
+  }
 }
